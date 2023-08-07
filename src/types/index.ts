@@ -5,6 +5,19 @@ export interface Question {
   options: string[];
   selectedOption: number;
 }
+
+export type DistributionMethod = "Email" | "WhatsApp" | "USSD";
+
+export interface CurrentFeedback {
+  respondentId: number;
+  title: string;
+  dateOfCreation: string;
+  distributionMethod: DistributionMethod;
+  privacy: string;
+  questions: Question[];
+  answers: number[];
+}
+
 export type Survey = {
   title: string;
   dateOfCreation: string;
@@ -16,7 +29,7 @@ export type Survey = {
   questions: Question[];
 };
 
-export type DistributionMethod = "Email" | "WhatsApp" | "USSD";
+
 
 export interface IconMapping {
   [key: string]: () => JSX.Element;
@@ -32,4 +45,19 @@ export interface Feedback {
   data: Survey;
   index: number;
   router: NextRouter;
+}
+
+export interface Feedbacks {
+  id: number;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  responses: {
+    surveyId: string;
+    answers: number[]; // Indexes of selected options
+  }[];
+}
+
+export interface StatusColorMap {
+  [key: string]: "success" | "danger" | "warning";
 }

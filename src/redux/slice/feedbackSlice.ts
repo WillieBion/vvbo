@@ -1,9 +1,22 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+import { CurrentFeedback } from "@/types";
+
+interface FeedbackType {
+  currentFeeedback: CurrentFeedback;
+}
 
 // Initial states
-const initialState = {
-  currentFeeedback: null,
+const initialState: FeedbackType = {
+  currentFeeedback: {
+    respondentId: 0,
+    title: "",
+    dateOfCreation: "",
+    distributionMethod: "Email",
+    privacy: "",
+    questions: [],
+    answers: [],
+  },
 };
 
 export const feedbackSlice = createSlice({

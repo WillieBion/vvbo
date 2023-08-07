@@ -1,5 +1,6 @@
 import SurveyCard from "@/components/surveys/SurveyCard";
 import { Survey } from "@/types";
+import { surveysArray } from "@/util/data";
 import { Card } from "@nextui-org/card";
 import {
   Button,
@@ -13,191 +14,6 @@ import {
 } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
-
-const surveys: Survey[] = [
-  {
-    title: "Educational Needs Assessment",
-    dateOfCreation: "2023-05-18T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: "Email",
-    expirationDate: "2023-06-30T23:59:59",
-    privacy: "Anonymous",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Professional Development Survey",
-    dateOfCreation: "2023-06-05T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: 'WhatsApp',
-    expirationDate: "2023-07-15T23:59:59",
-    privacy: "Confidential",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Remote Learning Experience",
-    dateOfCreation: "2023-07-10T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: 'USSD',
-    expirationDate: "2023-08-31T23:59:59",
-    privacy: "Named Respondents",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Curriculum Feedback Survey",
-    dateOfCreation: "2023-08-02T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: 'Email',
-    expirationDate: "2023-09-30T23:59:59",
-    privacy: "Anonymous",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Classroom Technology Usage",
-    dateOfCreation: "2023-08-20T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: "Email",
-    expirationDate: "2023-10-15T23:59:59",
-    privacy: "Confidential",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Student Engagement Assessment",
-    dateOfCreation: "2023-09-12T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: 'WhatsApp',
-    expirationDate: "2023-11-30T23:59:59",
-    privacy: "Named Respondents",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-  {
-    title: "Teaching Resource Evaluation",
-    dateOfCreation: "2023-10-05T00:00:00",
-    category: "Education",
-    targetAudience: "Teachers",
-    distributionMethod: "Email",
-    expirationDate: "2023-12-31T23:59:59",
-    privacy: "Anonymous",
-    questions: [
-      {
-        text: "What is your preferred teaching method?",
-        options: ["Lecture", "Group discussion", "Hands-on activities"],
-        selectedOption: -1, // Initialize with -1 or set to a default option index
-      },
-      {
-        text: "Which technology tools do you use in the classroom?",
-        options: ["Smartboard", "Laptops", "Tablets", "None"],
-        selectedOption: -1,
-      },
-      {
-        text: "What is the biggest challenge you face in teaching?",
-        options: ["Lack of resources", "Student engagement", "Assessment"],
-        selectedOption: -1,
-      },
-    ],
-  },
-];
 
 export default function SurveysPage() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -223,7 +39,7 @@ export default function SurveysPage() {
 
       {/* cards */}
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1  gap-4">
-        {surveys.map((item, index) => (
+        {surveysArray.map((item, index) => (
           <SurveyCard data={item} index={index} router={router} />
         ))}
       </div>

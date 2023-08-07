@@ -26,7 +26,6 @@ const SurveyCard = (props: CardSurvey) => {
   const IconComponent = iconMapping[data.distributionMethod];
 
   return (
-    <React.Fragment>
       <Link
         href={`${router.asPath}/${index}`}
         onClick={() => dispatch(setCurrentSurvey(data))}
@@ -66,7 +65,6 @@ const SurveyCard = (props: CardSurvey) => {
           </CardFooter>
         </Card>
       </Link>
-    </React.Fragment>
   );
 };
 
