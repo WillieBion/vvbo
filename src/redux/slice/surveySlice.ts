@@ -10,6 +10,7 @@ import { Survey } from "@/types";
 
 interface SurveyType {
   currentSurvey: Survey;
+  surveyId: number;
 }
 
 // Initial states
@@ -24,6 +25,7 @@ const initialState: SurveyType = {
     privacy: "",
     questions: [],
   },
+  surveyId: 0,
 };
 
 export const surveySlice = createSlice({
@@ -35,11 +37,14 @@ export const surveySlice = createSlice({
 
       state.currentSurvey = action.payload;
     },
+    setSurveyId: (state, action) => {
+      state.surveyId = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setCurrentSurvey } = surveySlice.actions;
+export const { setCurrentSurvey, setSurveyId } = surveySlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -37,6 +37,8 @@ const SurveyPage = () => {
     //   dispatch(setCurrentSurvey(updatedSurvey));
   };
 
+  console.log("CURRENT_SURVEY: ", currentSurvey);
+
   return (
     <div className="mt-4">
       {/* title */}

@@ -1,6 +1,7 @@
 export {
   selectSurvey,
   setCurrentSurvey,
+  setSurveyId,
 } from "./slice/surveySlice";
 
 export {
