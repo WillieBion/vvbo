@@ -1,6 +1,6 @@
 import { error } from "console";
 // import mysql from "mysql";
-import dbConfig from "./dbCon";
+import dbConfig from "../dbCon";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // const dbConfig = mysql.createPool({
